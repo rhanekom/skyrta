@@ -1,0 +1,53 @@
+{
+  "name": "skyrta",
+  "version": "0.0.1",
+  "description": "A wrapper around popular graphing tools (GraphViz, SvgBobRus) to convert text based diagrams to SVG.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "npm run lint:js && npm run lint:md",
+    "lint:js": "eslint --ext .js .",
+    "lint:md": "remark ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhanekom/skyrta"
+  },
+  "keywords": [
+    "svgbob",
+    "svgbobrus",
+    "drawing",
+    "ascii",
+    "plugin",
+    "graphviz",
+    "dot",
+    "svg"
+  ],
+  "author": "Riaan Hanekom",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/rhanekom/skyrta/issues"
+  },
+  "homepage": "https://github.com/rhanekom/skyrta#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.4.3",
+    "remark": "^9.0.0",
+    "remark-preset-lint-recommended": "^3.0.1",
+    "remark-validate-links": "^7.0.0"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended",
+      "remark-validate-links"
+    ]
+  }
+}
