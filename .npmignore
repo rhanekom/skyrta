@@ -1,0 +1,7 @@
+.git
+doc
+test
+.eslintrc.json
+package-lock.json
+.travis.yml
+.nvmrc
