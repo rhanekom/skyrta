@@ -12,7 +12,7 @@ module.exports = class Skyrta {
         let executable = this.languages.getCommand(language);
 
         if (!executable) {
-            return;
+            throw new Error(`Unsupported language ${language}.  Must be one of ${SupportedLanguages.SupportedLanguages} `);
         }
         
         const pipedprocess = new PipedProcess();
@@ -25,5 +25,5 @@ module.exports = class Skyrta {
         } catch (e) {                        
             throw new Error(`Unable to render ${language} graph: ${e}`);
         }        
-    }
+    }    
 };

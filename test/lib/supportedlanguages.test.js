@@ -30,3 +30,8 @@ test('getCommand returns undefined if language is not specified', () => {
     expect(languages.getCommand(undefined)).toBeUndefined();
     expect(languages.getCommand('')).toBeUndefined();
 });
+
+test('getLanguages returns a list of the supported languages', () => {    
+    expect(SupportedLanguages.getLanguages()).toContain(SupportedLanguages.langBob());
+    expect(SupportedLanguages.getLanguages()).toContain(SupportedLanguages.langDot());
+});
