@@ -87,10 +87,10 @@ will provide the following (rendered) SVG diagram:
 
 ## TODO
 
--  Options support
--  CLI
--  Mermaid support
--  PlantUML support
+-   Options support
+-   CLI
+-   Mermaid support
+-   PlantUML support
 
 [bobrus]: https://github.com/ivanceras/svgbobrus
 
