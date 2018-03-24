@@ -34,7 +34,12 @@ test('data returns original data value', () => {
     expect(svg.data).toBe(data);
 });
 
-test('pure returns just the svg tag', () => {
+test('toEmbed returns just the svg tag', () => {
     let svg = new Svg(testSvg);
-    expect(svg.pure).toMatch(/^<svg[\s\S]*?>[\s\S]*<\/svg>$/m);
+    expect(svg.toEmbed()).toMatch(/^<svg[\s\S]*?>[\s\S]*<\/svg>$/m);
+});
+
+test('toEmbed returns null if no tag can be matched', () => {
+    let svg = new Svg('gibberish');
+    expect(svg.toEmbed()).toBeNull();
 });
