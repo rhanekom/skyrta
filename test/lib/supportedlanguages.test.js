@@ -2,12 +2,14 @@ const SupportedLanguages = require('../../lib/supportedlanguages');
 
 test('getCommand has correct executable for bobsvg', () => {
     const languages = new SupportedLanguages();    
-    expect(languages.getCommand(SupportedLanguages.langBob())).toHaveProperty('exec', 'svgbob');
+    
+    const cmd = languages.getCommand(SupportedLanguages.langBob);    
+    expect(cmd.exec).toBe('svgbob');
 });
 
 test('getCommand has correct executable for dot', () => {
     const languages = new SupportedLanguages();    
-    const cmd = languages.getCommand(SupportedLanguages.langDot());    
+    const cmd = languages.getCommand(SupportedLanguages.langDot);    
     expect(cmd.exec).toBe('dot');
 
     // Important that we specify output to SVG as this not the default
@@ -16,7 +18,7 @@ test('getCommand has correct executable for dot', () => {
 
 test('getCommand performs normalizes case', () => {
     const languages = new SupportedLanguages();    
-    expect(languages.getCommand(SupportedLanguages.langDot().toUpperCase())).toHaveProperty('exec', 'dot');
+    expect(languages.getCommand(SupportedLanguages.langDot.toUpperCase())).toHaveProperty('exec', 'dot');
 });
 
 test('getCommand returns undefined on language not found', () => {
@@ -25,13 +27,14 @@ test('getCommand returns undefined on language not found', () => {
 });
 
 test('getCommand returns undefined if language is not specified', () => {
-    const languages = new SupportedLanguages();    
+    const languages = new SupportedLanguages();
     expect(languages.getCommand(null)).toBeUndefined();
     expect(languages.getCommand(undefined)).toBeUndefined();
     expect(languages.getCommand('')).toBeUndefined();
 });
 
 test('getLanguages returns a list of the supported languages', () => {    
-    expect(SupportedLanguages.getLanguages()).toContain(SupportedLanguages.langBob());
-    expect(SupportedLanguages.getLanguages()).toContain(SupportedLanguages.langDot());
+    const langs = new SupportedLanguages();
+    expect(langs.languages).toContain(SupportedLanguages.langBob);
+    expect(langs.languages).toContain(SupportedLanguages.langDot);
 });

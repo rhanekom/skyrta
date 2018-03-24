@@ -29,21 +29,6 @@ test('execute includes stderr when exec provides non zero code', () => {
     expect(() => execute(cat, ['-kj3'], testString)).toThrowError('invalid option');
 });
 
-test('run wraps output in div', () => {    
-    let test = new RegExp(`<div(.*)>${testString}</div>$`);
-    expect(run(cat, [], testString)).toMatch (test);
-});
-
-test('run div wrapper contains default class', () => {    
-    let test = new RegExp(`class="${PipedProcess.defaultClassName()}(.*)"`);
-    expect(run(cat, [], testString)).toMatch (test);
-});
-
-test('run div wrapper contains exec class', () => {    
-    let test = new RegExp(`class="(.*)${PipedProcess.defaultClassName()}-cat(.*)?"`);
-    expect(run(cat, [], testString)).toMatch (test);
-});
-
 function simpleCat() {
     // Simple cat with input written by this process
     return execute(cat, [], testString);    

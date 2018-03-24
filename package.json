@@ -26,9 +26,7 @@
   ],
   "author": "Riaan Hanekom",
   "license": "MIT",
-  "dependencies": {
-    "puppeteer": "^1.2.0"
-  },
+  "dependencies": {},
   "bugs": {
     "url": "https://github.com/rhanekom/skyrta/issues"
   },
