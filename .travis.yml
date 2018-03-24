@@ -3,4 +3,4 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev build-essential graphviz cargo
   - cargo install svgbob_cli
-  - export PATH="$PATH:$home/.cargo/bin"
+  - export PATH="$PATH:$HOME/.cargo/bin"
