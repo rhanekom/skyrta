@@ -3,7 +3,7 @@
 A Node.js wrapper around popular graphing tools to generate graphs.
 
 
-[![npm version](https://badge.fury.io/js/skyrta.svg)](https://badge.fury.io/js/skyrta) [![Build Status](https://travis-ci.org/skyrta.svg?branch=master)](https://travis-ci.org/rhanekom/skyrta) [![Maintainability](https://api.codeclimate.com/v1/badges/f839be9c69b30a2dd7e1/maintainability)](https://codeclimate.com/github/rhanekom/skyrta/maintainability) ![Dependencies](https://david-dm.org/rhanekom/skyrta.svg)
+[![npm version](https://badge.fury.io/js/skyrta.svg)](https://badge.fury.io/js/skyrta) [![Build Status](https://travis-ci.org/rhanekom/skyrta.svg?branch=master)](https://travis-ci.org/rhanekom/skyrta) [![Maintainability](https://api.codeclimate.com/v1/badges/f839be9c69b30a2dd7e1/maintainability)](https://codeclimate.com/github/rhanekom/skyrta/maintainability) ![Dependencies](https://david-dm.org/rhanekom/skyrta.svg)
 
 A wrapper around some popular graph tools to generate diagrams from their text representation.
 
