@@ -26,9 +26,7 @@ const testSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <path fill="none" stroke="black" d="M32.4971,-71.6966C32.4971,-60.8463 32.4971,-46.9167 32.4971,-36.1043"/>
     </g>
     </g>
-    </svg>`
-
-
+    </svg>`;
 
 test('data returns original data value', () => {
     let data = '<svg></svg>';

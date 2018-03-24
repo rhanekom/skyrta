@@ -37,8 +37,3 @@ function simpleCat() {
 function execute(cmd, parameters, input) {    
     return new PipedProcess().execute(cmd, parameters, input);
 }
-
-function run(cmd, parameters, input) {    
-    return new PipedProcess().run(cmd, parameters, input);
-}
-

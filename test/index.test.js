@@ -20,6 +20,6 @@ test('generate throws error if no source is provided', () => {
 
 
 test('generate throws error if invalid executable returned from supported languages', () => {
-    skyrta.supportedLanguages().addLanguage(invalidLanguage, 'cataaqaaa', []);
+    skyrta.supportedLanguages().addLanguage(invalidLanguage, invalidExecutable, []);
     expect(() => skyrta.generate(invalidLanguage, '{ graph }')).toThrowError('Unable to render');
 });
