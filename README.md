@@ -85,6 +85,13 @@ will provide the following (rendered) SVG diagram:
 `Skyrta` is used in the `gatsby-remark-draw` plugin to convert code blocks in Markdown to inline SVG.  You can see some samples in action [here](https://rhanekom.github.io/gatsby-remark-draw-demo/).
 
 
+## TODO
+
+-  Options support
+-  CLI
+-  Mermaid support
+-  PlantUML support
+
 [bobrus]: https://github.com/ivanceras/svgbobrus
 
 [graphviz]: https://www.graphviz.org/
