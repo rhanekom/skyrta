@@ -1,16 +1,15 @@
 'use strict';
 
 const SupportedLanguages = require('./lib/supportedlanguages');
-const PipedProcess = require('./lib/pipedprocess.js');
 
 module.exports = (function() {
     const Svg = require('./lib/svg');
 
     let langs = new SupportedLanguages();
 
-    function generate(language, source)  {
-        let executable = validate(language, source); 
-        return execute(executable, source);        
+    function generate(language, source, options = {})  {
+        let plugin = validate(language, source);
+        return execute(plugin, source, options);
     }
 
     function supportedLanguages() {
@@ -18,32 +17,29 @@ module.exports = (function() {
     }
 
     function validate(language, source) {
-        let executable = langs.getCommand(language);
+        let plugin = langs.getCommand(language);
 
-        if (!executable) {
+        if (!plugin) {
             throw new Error(`Unsupported language ${language}.  Must be one of ${langs.languages.toString()} `);
         }
-        
+
         if (!source) {
             throw new Error('No source provided for input');
         }
 
-        return executable;
+        return plugin;
     }
-    
-    function execute(executable, source) {
+
+    function execute(plugin, source, options) {
         try {
-            const pipedprocess = new PipedProcess();  
-            let output = pipedprocess.run(executable.exec, executable.args, source);
+            let output = plugin.generate(source, options);
             
-            if (output) {
-                return new Svg(output);
-            }
-    
-            return null;
-        } catch (e) {                        
-            throw new Error(`Unable to render graph with ${executable.exec}: ${e}`);
+            if (output) { return new Svg(output); }            
+        } catch (e) {
+            throw new Error(`Unable to render graph language with ${plugin.lang()}: ${e}`);
         }
+        
+        return null;
     }
 
     return {

@@ -1,24 +1,22 @@
 const SupportedLanguages = require('../../lib/supportedlanguages');
 
-test('getCommand has correct executable for bobsvg', () => {
+test('getCommand has bobsvg', () => {
     const languages = new SupportedLanguages();    
     
-    const cmd = languages.getCommand(SupportedLanguages.langBob);    
-    expect(cmd.exec).toBe('svgbob');
+    const cmd = languages.getCommand('bob');    
+    expect(cmd).toBeTruthy();
 });
 
-test('getCommand has correct executable for dot', () => {
+test('getCommand has dot', () => {
     const languages = new SupportedLanguages();    
-    const cmd = languages.getCommand(SupportedLanguages.langDot);    
-    expect(cmd.exec).toBe('dot');
-
-    // Important that we specify output to SVG as this not the default
-    expect(cmd.args).toContain('-Tsvg');
+    
+    const cmd = languages.getCommand('dot');
+    expect(cmd).toBeTruthy();
 });
 
 test('getCommand performs normalizes case', () => {
     const languages = new SupportedLanguages();    
-    expect(languages.getCommand(SupportedLanguages.langDot.toUpperCase())).toHaveProperty('exec', 'dot');
+    expect(languages.getCommand('DOT')).toBeTruthy();
 });
 
 test('getCommand returns undefined on language not found', () => {
@@ -35,6 +33,6 @@ test('getCommand returns undefined if language is not specified', () => {
 
 test('getLanguages returns a list of the supported languages', () => {    
     const langs = new SupportedLanguages();
-    expect(langs.languages).toContain(SupportedLanguages.langBob);
-    expect(langs.languages).toContain(SupportedLanguages.langDot);
+    expect(langs.languages).toContain('bob');
+    expect(langs.languages).toContain('dot');
 });

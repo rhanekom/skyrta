@@ -1,25 +1,26 @@
-var SupportedLanguages = require('../lib/supportedlanguages');
-
 var skyrta = require('../index');
 
+const validLanguage = 'bob';
 const invalidLanguage = 'gibberish';
-const invalidExecutable = 'cataaaqaa';
 
 test('generate throws error when no matching language type is provided', () => {
     expect(() => skyrta.generate(invalidLanguage, 'any source')).toThrowError('Unsupported language');
 });
 
 test('generate contains list of languages when no matching language is found', () => {
-    expect(() => skyrta.generate(invalidLanguage, 'any source')).toThrowError(SupportedLanguages.langBob);
+    expect(() => skyrta.generate(invalidLanguage, 'any source')).toThrowError(validLanguage);
 });
 
 test('generate throws error if no source is provided', () => {
-    expect(() => skyrta.generate(SupportedLanguages.langBob, null)).toThrowError('No source');
-    expect(() => skyrta.generate(SupportedLanguages.langBob, undefined)).toThrowError('No source');
+    expect(() => skyrta.generate(validLanguage, null)).toThrowError('No source');
+    expect(() => skyrta.generate(validLanguage, undefined)).toThrowError('No source');
 });
 
 
 test('generate throws error if invalid executable returned from supported languages', () => {
-    skyrta.supportedLanguages().addLanguage(invalidLanguage, invalidExecutable, []);
+    skyrta.supportedLanguages().addLanguage({
+        lang: () => invalidLanguage,
+        generate: () => { throw Error('oops'); }
+    });
     expect(() => skyrta.generate(invalidLanguage, '{ graph }')).toThrowError('Unable to render');
 });
