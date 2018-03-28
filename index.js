@@ -32,8 +32,7 @@ module.exports = (function() {
 
     function execute(plugin, source, options) {
         try {
-            let output = plugin.generate(source, options);
-            
+            let output = plugin.generate(source, options);            
             if (output) { return new Svg(output); }            
         } catch (e) {
             throw new Error(`Unable to render graph language with ${plugin.lang()}: ${e}`);

@@ -26,7 +26,10 @@
   ],
   "author": "Riaan Hanekom",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "npm-which": "^3.0.1",
+    "tmp": "^0.0.33"
+  },
   "bugs": {
     "url": "https://github.com/rhanekom/skyrta/issues"
   },
@@ -39,6 +42,8 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^22.4.3",
+    "mermaid": "^8.0.0-rc.6",
+    "mermaid.cli": "^0.4.4",
     "remark": "^9.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
     "remark-validate-links": "^7.0.0"
