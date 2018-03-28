@@ -11,6 +11,7 @@ This package currently supports:
 
 -   [SvgBobRus][bobrus] for ASCII diagrams
 -   [GraphViz][graphviz] for diagrams expressed in dot
+-   [Mermaid][mermaid] for diagrams and flowcharts (in the latest beta)
 
 This package is simple in that it  passes in the input provided directly over stdin to the appropriate process and returns the generated SVG.
 
@@ -179,3 +180,4 @@ SVG returned in wrapper class with the `toEmbed()` function to strip excess XML 
 
 [graphviz-attributes]: https://www.graphviz.org/doc/info/attrs.html
 
+[mermaid]: https://github.com/knsv/mermaid

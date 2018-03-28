@@ -14,6 +14,13 @@ test('getCommand has dot', () => {
     expect(cmd).toBeTruthy();
 });
 
+test('getCommand has mermaid', () => {
+    const languages = new SupportedLanguages();    
+    
+    const cmd = languages.getCommand('mermaid');
+    expect(cmd).toBeTruthy();
+});
+
 test('getCommand performs normalizes case', () => {
     const languages = new SupportedLanguages();    
     expect(languages.getCommand('DOT')).toBeTruthy();

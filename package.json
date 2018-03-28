@@ -22,7 +22,10 @@
     "plugin",
     "graphviz",
     "dot",
-    "svg"
+    "svg",
+    "mermaid",
+    "graph",
+    "flowchart"
   ],
   "author": "Riaan Hanekom",
   "license": "MIT",

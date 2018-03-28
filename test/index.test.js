@@ -16,7 +16,6 @@ test('generate throws error if no source is provided', () => {
     expect(() => skyrta.generate(validLanguage, undefined)).toThrowError('No source');
 });
 
-
 test('generate throws error if invalid executable returned from supported languages', () => {
     skyrta.supportedLanguages().addLanguage({
         lang: () => invalidLanguage,
