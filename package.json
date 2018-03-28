@@ -1,6 +1,6 @@
 {
   "name": "skyrta",
-  "version": "0.1.5-4",
+  "version": "0.1.5-5",
   "description": "A wrapper around popular graphing tools (GraphViz, SvgBobRus) to convert text based diagrams to SVG.",
   "main": "src/index.js",
   "scripts": {
