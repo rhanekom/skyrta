@@ -11,7 +11,7 @@ This package currently supports:
 
 -   [SvgBobRus][bobrus] for ASCII diagrams
 -   [GraphViz][graphviz] for diagrams expressed in dot
--   [Mermaid][mermaid] for diagrams and flowcharts (in the latest beta)
+-   [Mermaid][mermaid] for diagrams and flowcharts
 
 This package is simple in that it  passes in the input provided directly over stdin to the appropriate process and returns the generated SVG.
 
@@ -83,8 +83,7 @@ will provide the following (rendered) SVG diagram:
 
 ![Bob diagram](doc/bobrus.png)
 
-
-#### Options
+##### Options
 
 | Option      | Translates to  |
 | ----------- | -------------- |
@@ -120,7 +119,7 @@ will provide the following (rendered) SVG diagram:
 
 
 
-#### Options
+##### Options
 
 
 
@@ -147,6 +146,42 @@ edgeAttributes: {
 
 A list of possible attributes can be found [here][graphviz-attributes].
 
+
+
+#### Mermaid
+
+To render [Mermaid][mermaid] graphs you need to install both the mermaid and the cli packages:
+
+```bash
+npm install mermaid mermaid.cli --save
+```
+
+Note the `.` in the cli package name - the package with a `-` that shall not be named here has been deprecated.
+
+A sample flowchart from the main [Mermaid][mermaid] repository:
+
+![Graphviz markup](doc/mermaid-markup.png)
+
+will provide the following (rendered) SVG diagram:
+
+![Mermaid output](doc/mermaid.png)
+
+
+
+##### Options
+
+| Option              | Translates to       |
+| ------------------- | ------------------- |
+| theme               | theme               |
+| width               | width               |
+| height              | height              |
+| backgroundColor     | backgroundColor     |
+| configFile          | configFile          |
+| cssFile             | cssFile             |
+| puppeteerConfigFile | puppeteerConfigFile |
+
+It's pretty much a one to one mapping.  Please see the [cli documentation][mermaid-cli] for possible values of these parameters.
+
 ## Demo
 
 `Skyrta` is used in the `gatsby-remark-draw` plugin to convert code blocks in Markdown to inline SVG.  You can see some samples in action [here](https://rhanekom.github.io/gatsby-remark-draw-demo/).
@@ -155,9 +190,13 @@ A list of possible attributes can be found [here][graphviz-attributes].
 
 ## Version history
 
+**1.5.**
+
+Added support for [Mermaid][mermaid] graphs.
+
 **1.4.**
 
-Added options to pass to the rendering executable.
+Added options to pass to the executable rendering the graph.
 
 **1.3**
 
@@ -181,3 +220,6 @@ SVG returned in wrapper class with the `toEmbed()` function to strip excess XML 
 [graphviz-attributes]: https://www.graphviz.org/doc/info/attrs.html
 
 [mermaid]: https://github.com/knsv/mermaid
+
+[mermaid-cli]: https://github.com/mermaidjs/mermaid.cli
+
