@@ -1,18 +1,22 @@
 var skyrta = require('../../../index');
 var graphviz = require('../../../lib/plugins/graphviz');
 
+function simpleGraph(options) {
+    return skyrta.generate('dot', 'graph { no -- power; }', options);
+}
+
 test('generates valid svg graph', () => {
-    let svg = skyrta.generate('dot', 'graph { no -- power; }');
+    let svg = simpleGraph();
     expect(svg.value).toMatch(/<svg[\s\S]*>[\s\S]*<\/svg>/m);
 });
 
 test('generates valid svg graph with options', () => {
-    let svg = skyrta.generate('dot', 'graph { no -- power; }', { engine: 'neato', scale: 72, graphAttributes : { 'forcelabels': false }});
+    let svg = simpleGraph({ engine: 'neato', scale: 72, graphAttributes : { 'forcelabels': false }});
     expect(svg.value).toMatch(/<svg[\s\S]*>[\s\S]*<\/svg>/m);
 });
 
 test('fails on invalid engine', () => {
-    expect(() => skyrta.generate('dot', 'graph { no -- power; }', { engine: 'random' }))
+    expect(() => simpleGraph({ engine: 'random' }))
         .toThrowError('no layout engine');
 });
 

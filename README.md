@@ -58,6 +58,10 @@ let svg = skyrta.generate('bob', '----->', {
 }).toEmbed();
 ```
 
+Global options:
+    * variableSize: Boolean - optionally strips width and height attributes from the SVG tag.  Default: true.
+
+
 You can find the specific options for each diagram type below.
 
 ### Diagrams

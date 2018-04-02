@@ -1,4 +1,5 @@
 const Svg = require('../../lib/svg');
+var cheerio = require('cheerio');
 
 const testSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -29,7 +30,7 @@ const testSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
     </svg>`;
 
 test('data returns original data value', () => {
-    let data = '<svg></svg>';
+    let data = '<svg/>';
     let svg = new Svg(data);
     expect(svg.data).toBe(data);
 });
@@ -42,4 +43,40 @@ test('toEmbed returns just the svg tag', () => {
 test('toEmbed returns null if no tag can be matched', () => {
     let svg = new Svg('gibberish');
     expect(svg.toEmbed()).toBeNull();
+});
+
+test('option variableSize=true strips width and height', () => {
+    let svg = new Svg(testSvg, { variableSize: true });
+
+    const $ = cheerio.load(svg.value, {
+        normalizeWhitespace: true,
+        xmlMode: true
+    });
+
+    let svgNode = $('svg');
+    expect(svgNode.attr('height')).toBeUndefined();
+    expect(svgNode.attr('width')).toBeUndefined();
+});
+
+test('option variableSize=false/undefined keeps width and height', () => {
+
+    let assert = function(target) {
+        const $ = cheerio.load(target.value, {
+            normalizeWhitespace: true,
+            xmlMode: true
+        });
+
+        let svgNode = $('svg');
+        expect(svgNode.attr('height')).toBeTruthy();
+        expect(svgNode.attr('width')).toBeTruthy();
+    };
+
+    let svg = new Svg(testSvg, { variableSize: false });
+    assert(svg);
+
+    svg =  new Svg(testSvg);
+    assert(svg);
+
+    svg =  new Svg(testSvg, { variableSize: undefined });
+    assert(svg);
 });
