@@ -26,7 +26,7 @@ test('execute throws error when exec provides non zero code', () => {
 
 test('execute includes stderr when exec provides non zero code', () => {
     // Execute cat with an arbitrary option
-    expect(() => execute(cat, ['-kj3'], testString)).toThrowError('invalid option');
+    expect(() => execute(cat, ['-kj3'], testString)).toThrowError('option');
 });
 
 function simpleCat() {
